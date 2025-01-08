@@ -1,123 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Error</title>
-    <style>
-        /* Общий стиль для страницы */
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000000;
-            font-family: monospace;
-        }
+  <meta charset="UTF-8" />
+  <title>$Glitch</title>
+  <!-- Шрифт в 8-битном стиле -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-        /* Стиль для контейнера текста */
-        .error-container {
-            text-align: center;
-        }
+  <style>
+    /* --- Общий сброс стилей --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Стиль для заголовка с ошибкой 404 */
-        .error-container h1 {
-            color: lime; /* Текст будет лаймовым */
-            font-size: 50px;
-            text-transform: uppercase;
-            margin: 0;
-            position: relative;
-            display: inline-block;
-        }
+    /* --- Основной фон и цветовая схема (зелёно-чёрная) --- */
+    body {
+      background: #000; 
+      color: #0aff0a; /* светло-зелёный */
+      font-family: 'Press Start 2P', monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
 
-        /* Эффект глича */
-        .error-container h1::before,
-        .error-container h1::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            overflow: hidden;
-            background: #0b0b0b;
-            color: lime;
-            clip: rect(0, 900px, 0, 0);
-        }
+    h1, h2, h3, h4 {
+      margin-bottom: 1rem;
+      text-align: center;
+      text-shadow: 1px 1px 0 #00ff00;
+    }
 
-        .error-container h1::before {
-            left: 7px;
-            text-shadow: 1px 0 green;
-            animation: glitch-effect-1 3s infinite linear alternate-reverse;
-        }
+    /* --- Глитч-анимация для заголовка (демо) --- */
+    .glitch {
+      position: relative;
+      display: inline-block;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; 
+      overflow: hidden;
+      color: #0aff0a;
+      text-shadow: -2px 0 #00ff00;
+      clip: rect(0, 900px, 0, 0);
+    }
+    .glitch::before {
+      animation: glitch-top 2s infinite linear alternate-reverse;
+    }
+    .glitch::after {
+      text-shadow: -1px 0 #0aff0a;
+      animation: glitch-bottom 2s infinite linear alternate-reverse;
+    }
 
-        .error-container h1::after {
-            left: 3px;
-            text-shadow: -1px 0 red;
-            animation: glitch-effect-2 2s infinite linear alternate-reverse;
-        }
+    @keyframes glitch-top {
+      0% { clip: rect(36px, 9999px, 44px, 0); }
+      20% { clip: rect(0px, 9999px, 8px, 0); }
+      40% { clip: rect(10px, 9999px, 60px, 0); }
+      60% { clip: rect(30px, 9999px, 15px, 0); }
+      80% { clip: rect(5px, 9999px, 50px, 0); }
+      100% { clip: rect(36px, 9999px, 44px, 0); }
+    }
+    @keyframes glitch-bottom {
+      0% { clip: rect(85px, 9999px, 140px, 0); }
+      20% { clip: rect(0px, 9999px, 8px, 0); }
+      40% { clip: rect(45px, 9999px, 65px, 0); }
+      60% { clip: rect(10px, 9999px, 130px, 0); }
+      80% { clip: rect(55px, 9999px, 95px, 0); }
+      100% { clip: rect(85px, 9999px, 140px, 0); }
+    }
 
-        /* Анимации для эффекта глича */
-        @keyframes glitch-effect-1 {
-            0% { clip: rect(20px, 9999px, 60px, 0); }
-            10% { clip: rect(40px, 9999px, 80px, 0); }
-            20% { clip: rect(60px, 9999px, 100px, 0); }
-            30% { clip: rect(80px, 9999px, 120px, 0); }
-            40% { clip: rect(100px, 9999px, 140px, 0); }
-            50% { clip: rect(120px, 9999px, 160px, 0); }
-            60% { clip: rect(140px, 9999px, 180px, 0); }
-            70% { clip: rect(160px, 9999px, 200px, 0); }
-            80% { clip: rect(180px, 9999px, 220px, 0); }
-            90% { clip: rect(200px, 9999px, 240px, 0); }
-            100% { clip: rect(220px, 9999px, 260px, 0); }
-        }
+    /* --- Контейнер для контента --- */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 1rem;
+      border: 3px double #0aff0a;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .container p {
+      margin-bottom: 1rem;
+    }
 
-        @keyframes glitch-effect-2 {
-            0% { clip: rect(30px, 9999px, 90px, 0); }
-            10% { clip: rect(50px, 9999px, 110px, 0); }
-            20% { clip: rect(70px, 9999px, 130px, 0); }
-            30% { clip: rect(90px, 9999px, 150px, 0); }
-            40% { clip: rect(110px, 9999px, 170px, 0); }
-            50% { clip: rect(130px, 9999px, 190px, 0); }
-            60% { clip: rect(150px, 9999px, 210px, 0); }
-            70% { clip: rect(170px, 9999px, 230px, 0); }
-            80% { clip: rect(190px, 9999px, 250px, 0); }
-            90% { clip: rect(210px, 9999px, 270px, 0); }
-            100% { clip: rect(230px, 9999px, 290px, 0); }
-        }
+    /* --- Стили для встроенного DexScreener-виджета (исходные) --- */
+    #dexscreener-embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 125%;
+    }
+    @media(min-width:1400px){
+      #dexscreener-embed {
+        padding-bottom: 65%;
+      }
+    }
+    #dexscreener-embed iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 0;
+    }
 
-        /* Стиль для кнопки "Назад" */
-        .back-button {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 20px;
-            background-color: lime;
-            color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    /* --- Дополнительный hover-эффект для ссылок, кнопок (при необходимости) --- */
+    a, button {
+      color: #0aff0a;
+      text-decoration: none;
+      border: 2px solid #0aff0a;
+      background: transparent;
+      padding: 0.5rem 1rem;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover, button:hover {
+      color: #000;
+      background: #0aff0a;
+    }
 
-        /* Эффекты при наведении на кнопку */
-        .back-button:hover {
-            background-color: darkgreen;
-            transform: scale(1.1);
-        }
-
-        .back-button:active {
-            background-color: #228B22;
-        }
-    </style>
+  </style>
 </head>
 <body>
 
-<div class="error-container">
-    <h1 data-text="404 - Page Not Found">404 - Page Not Found</h1>
-    <!-- Кнопка "Назад" -->
-    <button class="back-button" onclick="window.history.back()">Back</button>
-</div>
+  <h1 class="glitch" data-text="MY GLITCH TOKEN"></h1>
 
+  <div class="container">
+    <h2>Token info </h2>
+    <p>
+     $Glitch is a token that transforms system errors into art, and turns instability into entertainment.
+    </p>
+    <p>
+      Below you can see the DexScreener chart embedded for your convenience.
+    </p>
+  </div>
+
+  <!-- DexScreener Widget -->
+  <div class="container">
+    <div id="dexscreener-embed">
+      <iframe 
+        src="https://dexscreener.com/ton/EQDax1oNJYgDmaPgiUSu9LnoRO10xBVsQ9XPxqT4u7_1Osu5?embed=1&loadChartSettings=0&trades=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Join Our Community</h3>
+    <p>
+      Connect with us on <a href="https://t.me/fixGlitch">Telegram</a> or <a href="https://x.com/Glitchtoncoin">Twitter</a>.
+    </p>
+  </div>
+  
 </body>
 </html>
+
