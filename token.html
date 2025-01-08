@@ -39,10 +39,12 @@
       position: relative;
       display: inline-block;
     }
-    .glitch::before, .glitch::after {
+    .glitch::before,
+    .glitch::after {
       content: attr(data-text);
       position: absolute;
-      left: 0; top: 0;
+      left: 0; 
+      top: 0;
       width: 100%; 
       overflow: hidden;
       color: #0aff0a;
@@ -65,6 +67,7 @@
       80% { clip: rect(5px, 9999px, 50px, 0); }
       100% { clip: rect(36px, 9999px, 44px, 0); }
     }
+
     @keyframes glitch-bottom {
       0% { clip: rect(85px, 9999px, 140px, 0); }
       20% { clip: rect(0px, 9999px, 8px, 0); }
@@ -130,9 +133,9 @@
   <h1 class="glitch" data-text="MY GLITCH TOKEN"></h1>
 
   <div class="container">
-    <h2>Token info </h2>
+    <h2>Token info</h2>
     <p>
-     $Glitch is a token that transforms system errors into art, and turns instability into entertainment.
+      $Glitch is a token that transforms system errors into art, and turns instability into entertainment.
     </p>
     <p>
       Below you can see the DexScreener chart embedded for your convenience.
@@ -151,8 +154,13 @@
   <div class="container">
     <h3>Join Our Community</h3>
     <p>
-      Connect with us on <a href="https://t.me/fixGlitch">Telegram</a> or <a href="https://x.com/Glitchtoncoin">Twitter</a>.
+      Connect with us on 
+      <a href="https://t.me/fixGlitch" target="_blank">Telegram</a> 
+      or 
+      <a href="https://x.com/Glitchtoncoin" target="_blank">Twitter</a>.
     </p>
+    <!-- Кнопка "Назад" (Back) -->
+    <button onclick="window.history.back()">Back</button>
   </div>
   
 </body>
