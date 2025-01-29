@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Partners</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #0aff0a;
+      font-family: 'Press Start 2P', monospace;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-shadow: 1px 1px 0 #00ff00;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 360px;
+      height: 65vh; /* Ограниченная высота для прокрутки */
+      padding: 1rem;
+      border: 3px double #0aff0a;
+      background: rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+      flex-grow: 1;
+      scrollbar-width: thin;
+      scrollbar-color: #0aff0a transparent;
+    }
+
+    .partners {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .partner {
+      width: 100%;
+      max-width: 320px;
+      padding: 0.8rem;
+      border: 2px solid #0aff0a;
+      text-align: center;
+      transition: transform 0.3s;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+    }
+
+    .partner img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 8px;
+    }
+
+    .partner:hover {
+      transform: scale(1.03);
+    }
+
+    a {
+      color: #0aff0a;
+      text-decoration: none;
+      border: 2px solid #0aff0a;
+      padding: 0.4rem;
+      font-size: 12px;
+      display: inline-block;
+      margin-top: 8px;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background: #0aff0a;
+      color: #000;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 320px;
+      font-size: 14px;
+      padding: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Partners</h1>
+
+  <div class="container">
+    <div class="partners">
+      <div class="partner">
+        <img src="2x2.png" alt="Партнёр 1">
+        <p>2x2</p>
+        <a href="https://t.me/twoxpump" target="_blank">Подробнее</a>
+      </div>
+      
+      <div class="partner">
+        <img src="error.png" alt="error">
+        <p>error</p>
+        <a href="error" target="_blank">Подробнее</a>
+      </div>
+
+      <div class="partner">
+        <img src="error.png" alt="error">
+        <p>error</p>
+        <a href="error" target="_blank">Подробнее</a>
+      </div>
+      
+      <div class="partner">
+        <img src="error.png" alt="error">
+        <p>error</p>
+        <a href="error" target="_blank">Подробнее</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="back-button" href="https://fixglitch.xyz">Назад</a>
+
+</body>
+</html>
